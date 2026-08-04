@@ -31,8 +31,9 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction --no-script
 COPY . .
 
 # Ensure runtime folders exist
-RUN mkdir -p storage/logs bootstrap/cache
+RUN mkdir -p storage/logs bootstrap/cache database \
+    && touch database/database.sqlite
 
 EXPOSE 8080
 
-CMD ["sh", "-lc", "php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"]
+CMD ["sh", "-lc", "if [ \"${DB_CONNECTION:-sqlite}\" = \"sqlite\" ] && [ -z \"${DB_DATABASE:-}\" ]; then mkdir -p database && touch database/database.sqlite; fi && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"]
