@@ -15,7 +15,7 @@ class StoreWebinaireInscriptionRequest extends FormRequest
     {
         return [
             'nom' => ['required', 'string', 'max:120'],
-            'email' => ['required', 'email:rfc,dns', 'max:190'],
+            'email' => ['required', 'email', 'max:190'],
             'telephone' => ['required', 'string', 'max:30'],
         ];
     }
