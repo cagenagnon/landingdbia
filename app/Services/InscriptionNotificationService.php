@@ -24,7 +24,7 @@ class InscriptionNotificationService
             return false;
         }
 
-        dispatch(function () use ($inscription): void {
+        app()->terminating(function () use ($inscription): void {
             try {
                 Mail::to($inscription->email)->send(new WebinaireConfirmation($inscription->nom));
             } catch (\Throwable $exception) {
@@ -34,7 +34,7 @@ class InscriptionNotificationService
                     'error' => $exception->getMessage(),
                 ]);
             }
-        })->afterResponse();
+        });
 
         return true;
     }
@@ -51,7 +51,7 @@ class InscriptionNotificationService
             return false;
         }
 
-        dispatch(function () use ($candidature): void {
+        app()->terminating(function () use ($candidature): void {
             try {
                 Mail::to($candidature->email)->send(new BootcampConfirmation($candidature->nom));
             } catch (\Throwable $exception) {
@@ -61,7 +61,7 @@ class InscriptionNotificationService
                     'error' => $exception->getMessage(),
                 ]);
             }
-        })->afterResponse();
+        });
 
         return true;
     }
