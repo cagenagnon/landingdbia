@@ -19,8 +19,8 @@ class WebinaireInscriptionController extends Controller
 
         $mailSent = $notificationService->sendWebinaireConfirmation($inscription);
         $message = $mailSent
-            ? 'Inscription confirmée, un e-mail vous a été envoyé. N\'hésitez pas à vérifier vos spams si vous ne le voyez pas dans votre boîte de réception.'
-            : 'Inscription enregistrée avec succès.';
+            ? 'Inscription prise en compte avec succès. Vous recevrez un e-mail de confirmation pour valider votre inscription. Pensez aussi à vérifier votre dossier Spam / Indésirables.'
+            : 'Inscription prise en compte avec succès. Vous recevrez un e-mail de confirmation dès que possible. Pensez aussi à vérifier votre dossier Spam / Indésirables.';
 
         return response()->json([
             'message' => $message,
@@ -29,7 +29,7 @@ class WebinaireInscriptionController extends Controller
                 'type_activite' => $inscription->type_activite,
                 'email_envoye' => $mailSent,
             ],
-            'warnings' => $mailSent ? [] : ['Inscription enregistrée. Le message de confirmation peut prendre quelques minutes.'],
+            'warnings' => $mailSent ? [] : ['Inscription prise en compte. L\'e-mail de confirmation peut prendre quelques minutes.'],
         ], 201);
     }
 }

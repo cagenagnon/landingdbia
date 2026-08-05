@@ -24,19 +24,23 @@ class InscriptionNotificationService
             return false;
         }
 
-        dispatch(function () use ($inscription): void {
-            try {
-                Mail::to($inscription->email)->send(new WebinaireConfirmation($inscription->nom));
-            } catch (\Throwable $exception) {
-                Log::error('Erreur envoi e-mail webinaire', [
-                    'inscription_id' => $inscription->id,
-                    'email' => $inscription->email,
-                    'error' => $exception->getMessage(),
-                ]);
-            }
-        })->afterResponse();
+        try {
+            Mail::to($inscription->email)->queue(
+                (new WebinaireConfirmation($inscription->nom))
+                    ->onConnection('database')
+                    ->onQueue('emails')
+            );
 
-        return true;
+            return true;
+        } catch (\Throwable $exception) {
+            Log::error('Erreur mise en file e-mail webinaire', [
+                'inscription_id' => $inscription->id,
+                'email' => $inscription->email,
+                'error' => $exception->getMessage(),
+            ]);
+
+            return false;
+        }
     }
 
     public function sendBootcampConfirmation(BootcampCandidature $candidature): bool
@@ -51,19 +55,23 @@ class InscriptionNotificationService
             return false;
         }
 
-        dispatch(function () use ($candidature): void {
-            try {
-                Mail::to($candidature->email)->send(new BootcampConfirmation($candidature->nom));
-            } catch (\Throwable $exception) {
-                Log::error('Erreur envoi e-mail bootcamp', [
-                    'candidature_id' => $candidature->id,
-                    'email' => $candidature->email,
-                    'error' => $exception->getMessage(),
-                ]);
-            }
-        })->afterResponse();
+        try {
+            Mail::to($candidature->email)->queue(
+                (new BootcampConfirmation($candidature->nom))
+                    ->onConnection('database')
+                    ->onQueue('emails')
+            );
 
-        return true;
+            return true;
+        } catch (\Throwable $exception) {
+            Log::error('Erreur mise en file e-mail bootcamp', [
+                'candidature_id' => $candidature->id,
+                'email' => $candidature->email,
+                'error' => $exception->getMessage(),
+            ]);
+
+            return false;
+        }
     }
 
     private function isRealDeliveryMailer(): bool
