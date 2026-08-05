@@ -36,4 +36,4 @@ RUN mkdir -p storage/logs bootstrap/cache database \
 
 EXPOSE 8080
 
-CMD ["sh", "-lc", "if [ \"${DB_CONNECTION:-sqlite}\" = \"sqlite\" ] && [ -z \"${DB_DATABASE:-}\" ]; then mkdir -p database && touch database/database.sqlite; fi && php artisan migrate --force && php artisan queue:work --sleep=1 --tries=3 --timeout=60 & php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"]
+CMD ["sh", "-lc", "if [ \"${DB_CONNECTION:-sqlite}\" = \"sqlite\" ] && [ -z \"${DB_DATABASE:-}\" ]; then mkdir -p database && touch database/database.sqlite; fi && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"]
