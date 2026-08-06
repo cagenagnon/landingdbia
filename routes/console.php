@@ -21,8 +21,8 @@ Artisan::command('mail:test-inscription {to : Email de destination}', function (
     }
 
     try {
-        Mail::to($to)->send(new WebinaireConfirmation('Test Webinaire'));
-        Mail::to($to)->send(new BootcampConfirmation('Test Bootcamp'));
+        Mail::mailer('smtp')->to($to)->send(new WebinaireConfirmation('Test Webinaire'));
+        Mail::mailer('smtp')->to($to)->send(new BootcampConfirmation('Test Bootcamp'));
 
         $this->info('E-mails de test envoyes avec succes.');
 
