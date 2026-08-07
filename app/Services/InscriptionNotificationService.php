@@ -14,7 +14,7 @@ class InscriptionNotificationService
     public function sendWebinaireConfirmation(WebinaireInscription $inscription): bool
     {
         try {
-            Mail::mailer('smtp')->to($inscription->email)->send(new WebinaireConfirmation($inscription->nom));
+            Mail::mailer('resend')->to($inscription->email)->send(new WebinaireConfirmation($inscription->nom));
 
             return true;
         } catch (\Throwable $exception) {
@@ -31,7 +31,7 @@ class InscriptionNotificationService
     public function sendBootcampConfirmation(BootcampCandidature $candidature): bool
     {
         try {
-            Mail::mailer('smtp')->to($candidature->email)->send(new BootcampConfirmation($candidature->nom));
+            Mail::mailer('resend')->to($candidature->email)->send(new BootcampConfirmation($candidature->nom));
 
             return true;
         } catch (\Throwable $exception) {
