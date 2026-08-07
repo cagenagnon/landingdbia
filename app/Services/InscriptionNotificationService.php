@@ -17,26 +17,15 @@ class InscriptionNotificationService
             Mail::mailer('smtp')->to($inscription->email)->send(new WebinaireConfirmation($inscription->nom));
 
             return true;
-        // } catch (\Throwable $exception) {
-        //     Log::error('Erreur envoi e-mail webinaire', [
-        //         'inscription_id' => $inscription->id,
-        //         'email' => $inscription->email,
-        //         'error' => $exception->getMessage(),
-        //     ]);
+        } catch (\Throwable $exception) {
+            Log::error('Erreur envoi e-mail webinaire', [
+                'inscription_id' => $inscription->id,
+                'email' => $inscription->email,
+                'error' => $exception->getMessage(),
+            ]);
 
-        //     return false;
-        // }
-     }   catch (\Throwable $exception) {
-            Log::error('ERREUR SMTP WEBINAIRE', [
-        'inscription_id' => $inscription->id,
-        'email' => $inscription->email,
-        'message' => $exception->getMessage(),
-        'exception' => get_class($exception),
-        'trace' => $exception->getTraceAsString(),
-    ]);
-
-    throw $exception;
-}
+            return false;
+        }
     }
 
     public function sendBootcampConfirmation(BootcampCandidature $candidature): bool
@@ -45,26 +34,14 @@ class InscriptionNotificationService
             Mail::mailer('smtp')->to($candidature->email)->send(new BootcampConfirmation($candidature->nom));
 
             return true;
-        // } catch (\Throwable $exception) {
-        //     Log::error('Erreur envoi e-mail bootcamp', [
-        //         'candidature_id' => $candidature->id,
-        //         'email' => $candidature->email,
-        //         'error' => $exception->getMessage(),
-        //     ]);
+        } catch (\Throwable $exception) {
+            Log::error('Erreur envoi e-mail bootcamp', [
+                'candidature_id' => $candidature->id,
+                'email' => $candidature->email,
+                'error' => $exception->getMessage(),
+            ]);
 
-        //     return false;
-        // }
+            return false;
         }
-        catch (\Throwable $exception) {
-            Log::error('ERREUR SMTP BOOTCAMP', [
-        'candidature_id' => $candidature->id,
-        'email' => $candidature->email,
-        'message' => $exception->getMessage(),
-        'exception' => get_class($exception),
-        'trace' => $exception->getTraceAsString(),
-    ]);
-
-    throw $exception;
-}
     }
 }
