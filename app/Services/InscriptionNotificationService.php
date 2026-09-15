@@ -14,13 +14,12 @@ class InscriptionNotificationService
     public function sendWebinaireConfirmation(WebinaireInscription $inscription): bool
     {
         try {
-            Mail::mailer('resend')->to($inscription->email)->send(new WebinaireConfirmation($inscription->nom));
+            Mail::to($inscription->email)->send(new WebinaireConfirmation($inscription->nom));
 
             return true;
         } catch (\Throwable $exception) {
             Log::error('Erreur envoi e-mail webinaire', [
                 'inscription_id' => $inscription->id,
-                'email' => $inscription->email,
                 'error' => $exception->getMessage(),
             ]);
 
@@ -31,13 +30,12 @@ class InscriptionNotificationService
     public function sendBootcampConfirmation(BootcampCandidature $candidature): bool
     {
         try {
-            Mail::mailer('resend')->to($candidature->email)->send(new BootcampConfirmation($candidature->nom));
+            Mail::to($candidature->email)->send(new BootcampConfirmation($candidature->nom));
 
             return true;
         } catch (\Throwable $exception) {
             Log::error('Erreur envoi e-mail bootcamp', [
                 'candidature_id' => $candidature->id,
-                'email' => $candidature->email,
                 'error' => $exception->getMessage(),
             ]);
 

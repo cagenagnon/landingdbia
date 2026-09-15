@@ -10,9 +10,7 @@ class BootcampConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public function __construct(public string $nom)
-    {
-    }
+    public function __construct(public string $nom) {}
 
     public function build(): self
     {
