@@ -23,7 +23,7 @@
               </p>
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:20px 0;">
                 <tr><td style="padding:8px 0;border-bottom:1px solid #EDEBFC;font-size:14px;color:#555;">Démarrage</td><td style="padding:8px 0;border-bottom:1px solid #EDEBFC;font-size:14px;text-align:right;font-weight:bold;">28 septembre 2026</td></tr>
-                <tr><td style="padding:8px 0;border-bottom:1px solid #EDEBFC;font-size:14px;color:#555;">Durée</td><td style="padding:8px 0;border-bottom:1px solid #EDEBFC;font-size:14px;text-align:right;font-weight:bold;">2 semaines intensives</td></tr>
+                <tr><td style="padding:8px 0;border-bottom:1px solid #EDEBFC;font-size:14px;color:#555;">Durée</td><td style="padding:8px 0;border-bottom:1px solid #EDEBFC;font-size:14px;text-align:right;font-weight:bold;">4 semaines intensives</td></tr>
               </table>
               <p style="font-size:13px;color:#888;margin-top:24px;">
                 À très vite,<br>L'équipe DBIA

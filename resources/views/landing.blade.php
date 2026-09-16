@@ -173,7 +173,7 @@
 <section id="bootcamp" class="reveal">
   <div class="max-w-6xl mx-auto px-6 py-16 sm:py-20 grid lg:grid-cols-2 gap-12 items-start">
     <div>
-      <p class="eyebrow" style="color:var(--red)">PRIORITAIRE · 2 SEMAINES INTENSIVES</p>
+      <p class="eyebrow" style="color:var(--red)">PRIORITAIRE · 4 SEMAINES INTENSIVES</p>
       <h2 class="font-serif-display text-3xl sm:text-4xl mt-3" style="color:var(--navy)">
         Bootcamp Web DBIA
       </h2>
@@ -183,7 +183,7 @@
       </p>
       <dl class="mt-8 space-y-4 text-sm">
         <div class="flex justify-between border-b border-black/10 pb-3">
-          <dt class="text-black/50">Durée</dt><dd class="font-medium">2 semaines intensives</dd>
+          <dt class="text-black/50">Durée</dt><dd class="font-medium">4 semaines intensives</dd>
         </div>
         <div class="flex justify-between border-b border-black/10 pb-3">
           <dt class="text-black/50">Démarrage</dt><dd class="font-medium">Lundi 28 septembre 2026</dd>
