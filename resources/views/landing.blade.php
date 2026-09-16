@@ -89,7 +89,7 @@
 
 <section class="max-w-6xl mx-auto px-6 pt-16 pb-14 sm:pt-24 sm:pb-20">
   <p class="eyebrow inline-block px-3 py-1 rounded-full border" style="color:var(--indigo); border-color:var(--indigo)">
-    INITIATIVES FORMATIONS · AOÛT 2026
+    INITIATIVES FORMATIONS · SEPTEMBRE 2026
   </p>
   <h1 class="font-serif-display mt-5 text-4xl sm:text-6xl leading-[1.08]" style="color:var(--navy)">
     Deux rendez-vous pour<br class="hidden sm:block"> entrer dans le digital.
@@ -102,7 +102,7 @@
     <a href="#webinaire-form" class="btn-red px-6 py-3.5 rounded-full">Réserver ma place au Webinaire</a>
     <a href="#bootcamp-form" class="btn-outline px-6 py-3.5 rounded-full">Postuler au Bootcamp</a>
   </div>
-  <p class="mt-5 text-sm text-black/50">28 août — Webinaire en ligne · 31 août — Lancement du Bootcamp</p>
+  <p class="mt-5 text-sm text-black/50">26 septembre — Webinaire en ligne · 28 septembre — Lancement du Bootcamp</p>
 </section>
 
 <section class="max-w-4xl mx-auto px-6 pb-20 reveal" id="parcours">
@@ -113,11 +113,11 @@
   </div>
   <div class="grid grid-cols-2 gap-4 mt-3">
     <div>
-      <p class="font-semibold text-sm" style="color:var(--indigo)">Webinaire — 28 août</p>
+      <p class="font-semibold text-sm" style="color:var(--indigo)">Webinaire — 26 septembre</p>
       <p class="text-sm text-black/60">Découvrir les métiers du digital</p>
     </div>
     <div class="text-right">
-      <p class="font-semibold text-sm" style="color:var(--red)">Bootcamp — dès le 31 août</p>
+      <p class="font-semibold text-sm" style="color:var(--red)">Bootcamp — dès le 28 septembre</p>
       <p class="text-sm text-black/60">Se former aux fondamentaux du web</p>
     </div>
   </div>
@@ -126,7 +126,7 @@
 <section id="webinaire" class="reveal" style="background:var(--indigo-tint)">
   <div class="max-w-6xl mx-auto px-6 py-16 sm:py-20 grid lg:grid-cols-2 gap-12 items-start">
     <div>
-      <p class="eyebrow" style="color:var(--indigo)">ÉVÈNEMENT · VENDREDI 28 AOÛT</p>
+      <p class="eyebrow" style="color:var(--indigo)">ÉVÈNEMENT ·  26 SEPTEMBRE</p>
       <h2 class="font-serif-display text-3xl sm:text-4xl mt-3" style="color:var(--navy)">
         Webinaire : Découvrir les métiers du digital
       </h2>
@@ -186,7 +186,7 @@
           <dt class="text-black/50">Durée</dt><dd class="font-medium">2 semaines intensives</dd>
         </div>
         <div class="flex justify-between border-b border-black/10 pb-3">
-          <dt class="text-black/50">Démarrage</dt><dd class="font-medium">Lundi 31 août 2026</dd>
+          <dt class="text-black/50">Démarrage</dt><dd class="font-medium">Lundi 28 septembre 2026</dd>
         </div>
         <div class="flex justify-between border-b border-black/10 pb-3">
           <dt class="text-black/50">Places</dt><dd class="font-medium">Candidatures limitées</dd>
