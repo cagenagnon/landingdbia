@@ -153,15 +153,15 @@
       <div class="space-y-4">
         <div>
           <label class="text-sm font-medium block mb-1.5" for="w-nom">Nom complet</label>
-          <input id="w-nom" name="nom" required class="field" type="text" placeholder="Votre nom">
+          <input id="w-nom" name="nom" required class="field" type="text" minlength="3" pattern="[\p{L}]+(?:[ '\-][\p{L}]+)*" autocomplete="name" placeholder="Votre nom">
         </div>
         <div>
           <label class="text-sm font-medium block mb-1.5" for="w-email">E-mail</label>
-          <input id="w-email" name="email" required class="field" type="email" placeholder="vous@exemple.com">
+          <input id="w-email" name="email" required class="field" type="email" inputmode="email" autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" placeholder="vous@exemple.com">
         </div>
         <div>
           <label class="text-sm font-medium block mb-1.5" for="w-tel">Téléphone</label>
-          <input id="w-tel" name="telephone" required class="field" type="tel" placeholder="+229 ...">
+          <input id="w-tel" name="telephone" required class="field" type="tel" inputmode="numeric" pattern="[0-9]+" autocomplete="tel" placeholder="229xxxxxxxx">
         </div>
         <p data-feedback class="text-sm text-black/60 min-h-5"></p>
         <button type="submit" class="btn-red w-full py-3.5 rounded-full mt-2">Confirmer mon inscription</button>
@@ -200,15 +200,15 @@
       <div class="space-y-4">
         <div>
           <label class="text-sm font-medium block mb-1.5 text-white/90" for="b-nom">Nom complet</label>
-          <input id="b-nom" name="nom" required class="field" type="text" placeholder="Votre nom">
+          <input id="b-nom" name="nom" required class="field" type="text" minlength="3" pattern="[\p{L}]+(?:[ '\-][\p{L}]+)*" autocomplete="name" placeholder="Votre nom">
         </div>
         <div>
           <label class="text-sm font-medium block mb-1.5 text-white/90" for="b-email">E-mail</label>
-          <input id="b-email" name="email" required class="field" type="email" placeholder="vous@exemple.com">
+          <input id="b-email" name="email" required class="field" type="email" inputmode="email" autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" placeholder="vous@exemple.com">
         </div>
         <div>
           <label class="text-sm font-medium block mb-1.5 text-white/90" for="b-tel">Téléphone</label>
-          <input id="b-tel" name="telephone" required class="field" type="tel" placeholder="+229 ...">
+          <input id="b-tel" name="telephone" required class="field" type="tel" inputmode="numeric" pattern="[0-9]+" autocomplete="tel" placeholder="229xxxxxxxx">
         </div>
         <div>
           <label class="text-sm font-medium block mb-1.5 text-white/90" for="b-motiv">Pourquoi ce Bootcamp ?</label>
@@ -275,6 +275,23 @@
 
     feedback.classList.add(darkForm ? 'text-white/80' : 'text-black/60');
   }
+
+  document.querySelectorAll('input[type="email"], input[name="nom"], input[name="telephone"]').forEach((input) => {
+    input.addEventListener('input', () => {
+      const invalidFormat = input.validity.typeMismatch || input.validity.patternMismatch || input.validity.tooShort;
+      let message = '';
+
+      if (input.value && invalidFormat) {
+        message = input.name === 'email'
+          ? 'Veuillez saisir une adresse e-mail valide.'
+          : input.name === 'nom'
+            ? 'Le nom doit contenir au moins 3 lettres.'
+            : 'Le téléphone doit contenir uniquement des chiffres.';
+      }
+
+      input.setCustomValidity(message);
+    });
+  });
 
   async function parseApiResponse(res){
     const payload = await res.json().catch(() => ({}));
