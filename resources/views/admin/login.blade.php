@@ -11,7 +11,7 @@
         <h1 class="text-2xl font-semibold">Accès administrateur</h1>
         <p class="mt-2 text-sm text-slate-600">Saisissez votre code pour consulter les inscriptions.</p>
 
-        <form method="POST" action="{{ route('admin.login.store') }}" class="mt-6 space-y-4">
+        <form method="POST" action="{{ route('admin.login.store', [], false) }}" class="mt-6 space-y-4">
             @csrf
             <label for="code" class="block text-sm font-medium">Code administrateur</label>
             <input id="code" name="code" type="password" required autocomplete="current-password"
