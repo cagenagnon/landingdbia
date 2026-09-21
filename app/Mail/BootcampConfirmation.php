@@ -14,7 +14,7 @@ class BootcampConfirmation extends Mailable
 
     public function build(): self
     {
-        return $this->subject('Votre candidature au Bootcamp Web DBIA est reçue')
+        return $this->subject('Inscription enregistrée — Paiement à valider · Bootcamp Web DBIA')
             ->view('emails.bootcamp-confirmation')
             ->with(['nom' => $this->nom]);
     }

@@ -19,8 +19,8 @@ class BootcampCandidatureController extends Controller
 
         $mailSent = $notificationService->sendBootcampConfirmation($candidature);
         $message = $mailSent
-            ? 'Candidature prise en compte avec succès. Vous recevrez un e-mail de confirmation pour valider votre inscription. Pensez aussi à vérifier votre dossier Spam / Indésirables.'
-            : 'Candidature prise en compte avec succès. Vous recevrez un e-mail de confirmation dès que possible. Pensez aussi à vérifier votre dossier Spam / Indésirables.';
+            ? 'Première étape validée ! Veuillez consulter votre mail (et vos spams) pour valider les prochaines étapes et le paiement de l\'inscription.'
+            : 'Première étape validée ! Vous recevrez un e-mail de confirmation dès que possible pour valider les prochaines étapes et le paiement de l\'inscription.';
 
         return response()->json([
             'message' => $message,

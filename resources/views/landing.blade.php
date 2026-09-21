@@ -192,6 +192,21 @@
           <dt class="text-black/50">Places</dt><dd class="font-medium">Candidatures limitées</dd>
         </div>
       </dl>
+
+      <div class="mt-8 rounded-2xl p-6" style="background:var(--indigo-tint)">
+        <p class="font-semibold text-sm mb-3" style="color:var(--navy)">Tarifs</p>
+        <dl class="space-y-3 text-sm">
+          <div class="flex justify-between">
+            <dt class="text-black/60">Frais d'inscription</dt>
+            <dd class="font-semibold" style="color:var(--navy)">5 000 FCFA</dd>
+          </div>
+          <div class="flex justify-between">
+            <dt class="text-black/60">Frais de formation</dt>
+            <dd class="font-semibold" style="color:var(--navy)">50 000 FCFA</dd>
+          </div>
+        </dl>
+        <p class="text-xs text-black/50 mt-3">Le paiement des frais de formation peut être effectué en plusieurs tranches.</p>
+      </div>
     </div>
 
     <form id="bootcamp-form" class="rounded-2xl p-7 sm:p-8" style="background:var(--navy)">
@@ -368,7 +383,7 @@
     formId: 'bootcamp-form',
     endpoint: '/api/bootcamp/candidatures',
     loadingText: 'Envoi en cours...',
-    successFallback: 'Candidature envoyée — vérifiez votre boîte mail.',
+    successFallback: 'Première étape validée ! Consultez votre boîte mail pour connaître les prochaines étapes et procéder au paiement de l\'inscription.',
     buildBody: (form) => ({
       nom: form.nom.value,
       email: form.email.value,
